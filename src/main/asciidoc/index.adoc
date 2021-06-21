@@ -1,0 +1,37 @@
+= Music Lover home task REST API documentation
+:toc: left
+:toclevels: 4
+:sectids:
+:sectnums:
+:sectanchors:
+:sectlinks:
+:revnumber: {version}
+:revdate: {timestamp}
+
+== Endpoints
+
+=== Actuator
+==== Health check
+===== Request
+====== Example Request
+include::{snippets}/healthCheck/http-request.adoc[]
+===== Response
+====== Response Fields
+include::{snippets}/healthCheck/response-fields.adoc[]
+====== Example Response
+include::{snippets}/healthCheck/http-response.adoc[]
+
+=== Currency
+==== Exchange Currency
+===== Request
+====== Request Headers
+include::{snippets}/exchangeCurrency/request-headers.adoc[]
+====== Request Fields
+include::{snippets}/exchangeCurrency/request-fields.adoc[]
+====== Example Request
+include::{snippets}/exchangeCurrency/http-request.adoc[]
+===== Response
+====== Response Fields
+include::{snippets}/exchangeCurrency/response-fields.adoc[]
+====== Example Response
+include::{snippets}/exchangeCurrency/http-response.adoc[]
