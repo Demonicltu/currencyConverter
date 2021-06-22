@@ -1,15 +1,19 @@
 package currency.exchanger.service;
 
 import currency.exchanger.data.CurrencyExchangeMock;
-import currency.exchanger.dto.CurrencyExchangeResponse;
+import currency.exchanger.model.dto.CurrencyExchangeResponse;
 import currency.exchanger.exception.CannotExchangeException;
 import currency.exchanger.exception.CurrencyNotFoundException;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @ExtendWith(MockitoExtension.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -20,28 +24,33 @@ class CurrencyExchangeServiceImplTest {
 
     @Test
     void exchangeCurrency() throws Exception {
-        CurrencyExchangeResponse response = currencyExchangeService.exchangeCurrency(CurrencyExchangeMock.getExchangeRequest());
+        CurrencyExchangeResponse response =
+                currencyExchangeService.exchangeCurrency(CurrencyExchangeMock.getExchangeRequest());
 
-        Assertions.assertNotNull(response);
-        Assertions.assertFalse(response.getFromCurrency().isEmpty());
-        Assertions.assertFalse(response.getToCurrency().isEmpty());
-        Assertions.assertTrue(response.getToQuantity() > 0);
-        Assertions.assertTrue(response.getToQuantity() > 0);
+        assertNotNull(response);
+        assertFalse(response.getFromCurrency().isEmpty());
+        assertFalse(response.getToCurrency().isEmpty());
+        assertTrue(response.getToQuantity() > 0);
+        assertTrue(response.getToQuantity() > 0);
     }
 
     @Test
     void exchangeCurrencyCannotExchangeException() {
-        Assertions.assertThrows(
+        assertThrows(
                 CannotExchangeException.class,
-                () -> currencyExchangeService.exchangeCurrency(CurrencyExchangeMock.getExchangeRequestSameCurrency())
+                () -> currencyExchangeService.exchangeCurrency(
+                        CurrencyExchangeMock.getExchangeRequestSameCurrency()
+                )
         );
     }
 
     @Test
     void exchangeCurrencyCurrencyNotFoundException() {
-        Assertions.assertThrows(
+        assertThrows(
                 CurrencyNotFoundException.class,
-                () -> currencyExchangeService.exchangeCurrency(CurrencyExchangeMock.getExchangeRequestNotExistingCurrencies())
+                () -> currencyExchangeService.exchangeCurrency(
+                        CurrencyExchangeMock.getExchangeRequestNotExistingCurrencies()
+                )
         );
     }
 

@@ -1,4 +1,4 @@
-package currency.exchanger.dto;
+package currency.exchanger.model.dto;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;

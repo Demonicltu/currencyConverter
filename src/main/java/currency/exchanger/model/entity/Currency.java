@@ -1,4 +1,4 @@
-package currency.exchanger.entity;
+package currency.exchanger.model.entity;
 
 import com.opencsv.bean.CsvBindByName;
 

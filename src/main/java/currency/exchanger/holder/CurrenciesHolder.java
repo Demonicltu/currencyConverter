@@ -1,7 +1,7 @@
-package currency.exchanger.singleton;
+package currency.exchanger.holder;
 
 import com.opencsv.bean.CsvToBeanBuilder;
-import currency.exchanger.entity.Currency;
+import currency.exchanger.model.entity.Currency;
 import currency.exchanger.exception.CurrencyNotFoundException;
 
 import java.io.IOException;

@@ -1,7 +1,7 @@
-package currency.exchanger.mapper;
+package currency.exchanger.model.mapper;
 
-import currency.exchanger.dto.CurrencyExchangeRequest;
-import currency.exchanger.dto.CurrencyExchangeResponse;
+import currency.exchanger.model.dto.CurrencyExchangeRequest;
+import currency.exchanger.model.dto.CurrencyExchangeResponse;
 
 public class CurrencyExchangeMapper {
 

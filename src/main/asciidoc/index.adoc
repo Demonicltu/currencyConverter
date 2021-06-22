@@ -1,4 +1,4 @@
-= Music Lover home task REST API documentation
+= Currency converter REST API documentation
 :toc: left
 :toclevels: 4
 :sectids:

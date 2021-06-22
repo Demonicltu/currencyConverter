@@ -1,6 +1,5 @@
 package currency.exchanger.controller;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
@@ -9,6 +8,7 @@ import org.springframework.restdocs.payload.JsonFieldType;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessRequest;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessResponse;
@@ -36,7 +36,7 @@ class ActuatorIntegrationTest extends BaseControllerTest {
 
         String responseString = mvcResult.getResponse().getContentAsString();
 
-        Assertions.assertFalse(responseString.isEmpty());
+        assertFalse(responseString.isEmpty());
     }
 
     private RestDocumentationResultHandler documentHealthCheck() {

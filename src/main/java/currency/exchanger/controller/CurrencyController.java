@@ -1,8 +1,8 @@
 package currency.exchanger.controller;
 
 
-import currency.exchanger.dto.CurrencyExchangeRequest;
-import currency.exchanger.dto.CurrencyExchangeResponse;
+import currency.exchanger.model.dto.CurrencyExchangeRequest;
+import currency.exchanger.model.dto.CurrencyExchangeResponse;
 import currency.exchanger.error.ApplicationError;
 import currency.exchanger.exception.CannotExchangeException;
 import currency.exchanger.exception.CurrencyNotFoundException;

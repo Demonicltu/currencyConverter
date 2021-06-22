@@ -1,6 +1,6 @@
-package currency.exchanger.dto;
+package currency.exchanger.model.dto;
 
-import currency.exchanger.util.NumberFormatting;
+import currency.exchanger.util.NumberUtils;
 
 public class CurrencyExchangeResponse {
 
@@ -21,7 +21,7 @@ public class CurrencyExchangeResponse {
         this.fromCurrency = fromCurrency;
         this.toCurrency = toCurrency;
         this.fromQuantity = fromQuantity;
-        this.toQuantity = NumberFormatting.truncateDouble(toQuantity);
+        this.toQuantity = NumberUtils.roundNumber(toQuantity);
     }
 
     public double getToQuantity() {

@@ -1,12 +1,12 @@
 package currency.exchanger.service;
 
-import currency.exchanger.dto.CurrencyExchangeRequest;
-import currency.exchanger.dto.CurrencyExchangeResponse;
-import currency.exchanger.entity.Currency;
+import currency.exchanger.model.dto.CurrencyExchangeRequest;
+import currency.exchanger.model.dto.CurrencyExchangeResponse;
+import currency.exchanger.model.entity.Currency;
 import currency.exchanger.exception.CannotExchangeException;
 import currency.exchanger.exception.CurrencyNotFoundException;
-import currency.exchanger.mapper.CurrencyExchangeMapper;
-import currency.exchanger.singleton.CurrenciesHolder;
+import currency.exchanger.model.mapper.CurrencyExchangeMapper;
+import currency.exchanger.holder.CurrenciesHolder;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;

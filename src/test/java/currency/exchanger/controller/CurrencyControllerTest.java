@@ -1,12 +1,11 @@
 package currency.exchanger.controller;
 
 import currency.exchanger.data.CurrencyExchangeMock;
-import currency.exchanger.dto.CurrencyExchangeResponse;
+import currency.exchanger.model.dto.CurrencyExchangeResponse;
 import currency.exchanger.error.ApplicationError;
 import currency.exchanger.exception.CannotExchangeException;
 import currency.exchanger.exception.CurrencyNotFoundException;
 import currency.exchanger.service.CurrencyExchangeService;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -14,6 +13,9 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.httpBasic;
@@ -44,11 +46,11 @@ class CurrencyControllerTest extends BaseControllerTest {
         String responseString = mvcResult.getResponse().getContentAsString();
         CurrencyExchangeResponse exchangeResponse = mapper.readValue(responseString, CurrencyExchangeResponse.class);
 
-        Assertions.assertNotNull(exchangeResponse);
-        Assertions.assertFalse(exchangeResponse.getFromCurrency().isEmpty());
-        Assertions.assertFalse(exchangeResponse.getToCurrency().isEmpty());
-        Assertions.assertTrue(exchangeResponse.getToQuantity() > 0);
-        Assertions.assertTrue(exchangeResponse.getToQuantity() > 0);
+        assertNotNull(exchangeResponse);
+        assertFalse(exchangeResponse.getFromCurrency().isEmpty());
+        assertFalse(exchangeResponse.getToCurrency().isEmpty());
+        assertTrue(exchangeResponse.getToQuantity() > 0);
+        assertTrue(exchangeResponse.getToQuantity() > 0);
     }
 
     @Test
